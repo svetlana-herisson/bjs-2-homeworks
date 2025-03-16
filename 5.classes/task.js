@@ -22,9 +22,7 @@ class PrintEditionItem {
 	}
 
 	fix() {
-		if (this._state > 0 && this._state < 100) {
-			this.state = this.state * 1.5;
-		}
+		this.state = this.state * 1.5;
 	}
 }
 
