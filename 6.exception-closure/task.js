@@ -31,11 +31,12 @@ class Triangle {
 	}
 
 	get area() {
-		const p = 0.5 * (this.a + this.b + this.c);
+		const p = this.perimeter / 2;
 		const s = p * (p - this.a) * (p - this.b) * (p - this.c);
 
 		return Number(Math.sqrt(s).toFixed(3));
 	}
+
 }
 
 function getTriangle(a, b, c) {
@@ -43,8 +44,12 @@ function getTriangle(a, b, c) {
 		return new Triangle(a, b, c)
 	} catch (error) {
 		return {
-			perimeter: "Ошибка! Треугольник не существует",
-			area: "Ошибка! Треугольник не существует",
+			get area() {
+				return "Ошибка! Треугольник не существует";
+			},
+			get perimeter() {
+				return "Ошибка! Треугольник не существует";
+			}
 		};
 	}
 }
